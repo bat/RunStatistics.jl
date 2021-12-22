@@ -7,7 +7,7 @@ import Documenter
 Test.@testset "Package RunStatistics" begin
     include("test_Partitions.jl")
     include("test_Tobs.jl")
-    include("test_squares.jl")
+    include("test_Squares.jl")
     # doctests
     Documenter.DocMeta.setdocmeta!(
         RunStatistics,
