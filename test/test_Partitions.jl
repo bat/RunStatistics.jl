@@ -5,21 +5,21 @@ using Test
 
 p = RunStatistics.partition(6, 3)
 
-@testset "partitions" begin
+@testset "Partitions" begin
 
     for i in range(0, 2)
 
         sum = 0
 
         for j in range(2, p.h + 1)
-               
+
             sum += p.c[j] * p.y[j]
         end
 
         @test sum == 6
         RunStatistics.iterate!(p)
-    end 
-    
+    end
+
     @test RunStatistics.final_partition(p)
 
 end

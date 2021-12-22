@@ -4,7 +4,7 @@
 using RunStatistics
 using Test
 
-@testset "tobs" begin
+@testset "Tobs" begin
     @test RunStatistics.Tobs([-1, 1, 3, -2], 0, 1) == 10
 end
 
