@@ -5,15 +5,15 @@ import RunStatistics
 import Documenter
 
 Test.@testset "Package RunStatistics" begin
-    include("test_partitions.jl")
-    include("test_tobs.jl")
+    include("test_Partitions.jl")
+    include("test_Tobs.jl")
     include("test_squares.jl")
     # doctests
     Documenter.DocMeta.setdocmeta!(
         RunStatistics,
         :DocTestSetup,
         :(using RunStatistics);
-        recursive=true,
+        recursive = true
     )
     Documenter.doctest(RunStatistics)
 end # testset
