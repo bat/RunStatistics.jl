@@ -4,7 +4,8 @@ using RunStatistics
 using Test
 using Distributions
 
-@testset "squares_fred" begin
+
+@testset "squares_additional" begin
     
     @testset "squares_paper" begin
         alpha = 0.001
@@ -33,7 +34,7 @@ using Distributions
     end
 end
 
-@testset "squares_approx_fred" begin
+@testset "squares_approx_additional" begin
         
     @testset "squares_approx_split" begin
 

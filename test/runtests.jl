@@ -10,6 +10,7 @@ import Documenter
     include("test_tobs.jl")
     include("test_squares.jl")
     include("test_squares_approx.jl")
+    include("additional_tests.jl")
 
     # doctests
     Documenter.DocMeta.setdocmeta!(
