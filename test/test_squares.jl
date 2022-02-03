@@ -3,8 +3,6 @@
 using RunStatistics
 using Test
 
-# Before you make a release, you should copy over all the tests I implemented in https://github.com/fredRos/runs/tree/master/test and make sure the numbers agree. There may some discrepancy because a different numerical integration is used but otherwise you should get the same numbers
-
 @testset "squares" begin
     T_obs = 3.4
     N = 30
