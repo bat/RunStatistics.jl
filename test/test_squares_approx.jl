@@ -2,6 +2,7 @@
 
 using RunStatistics
 using Test
+using Distributions
 
 # I measured the timing for N=96 with the exact and approximate solution. See if julia is really faster. It seems some experiment with threading was done but without threads, I'd be surprised if it's faster than the C++ code built in release mode
 
