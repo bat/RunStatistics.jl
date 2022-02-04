@@ -29,3 +29,63 @@ using Test
     @test RunStatistics.squares_cdf_approx(T_obs, L, epsp_2) == 0.9291776728412211
     @test RunStatistics.squares_pvalue_approx(T_obs, L, epsp_2) == 0.0708223271587789
 end
+
+@testset "squares_approx_split" begin
+
+    Tobs = 15.5
+    N = 12
+    n = 2
+
+    F = squares_cdf(Tobs, N)
+    approx = F*F / (1.0 + RunStatistics.Delta(Tobs, N, N))
+
+    @test abs(approx - squares_cdf_approx(Tobs, [N, n])) <= 1e-15
+end 
+
+function test_on_grid(K::Integer, N::Integer, n::Real, eps::Real)
+
+    for i in 1:K
+        Tobs = 20 + 2 * i
+        @test abs(squares_cdf_approx(Tobs, [N, n]) - squares_cdf(Tobs, n * N)) <= eps
+    end 
+end
+
+@testset "squares_approx_grid" begin
+
+    test_on_grid(15, 40, 2, 2e-7)
+    # test_on_grid(15, 40, 3, 4e-7) expensive
+end 
+
+@testset "squares_approx_hH" begin
+    
+    Tobs = 15.5 
+    x = 3.3
+    N = 12 
+
+    @test abs(RunStatistics.h(Tobs, N) - 0.000373964) <= 1e-8
+    @test abs(RunStatistics.H(Tobs-x, Tobs, N) -  0.00245352) <= 1e-8
+    @test abs(RunStatistics.Delta(Tobs, N, N) - 0.00175994) <= 1e-8
+end
+
+@testset "squares_approx_cdf" begin
+    
+    @test abs(cdf(Chisq(12), 15.5) - 0.784775) <= 1e-6
+end
+
+@testset "squares_approx_interpolate" begin
+    Tobs = 32
+
+    F71 = squares_cdf_approx(Tobs, [71, 5])
+    F88 = squares_cdf_approx(Tobs, [88, 4])
+    F89 = squares_cdf_approx(Tobs, [89, 4])
+    F100 = squares_cdf_approx(Tobs, [Int64(100), 3.55])
+
+    @test abs(F71 - F100) <= 3e-9
+    @test abs(F71 - (F88 + 3*F89)/4) <= 2e-9
+end
+
+@testset "squares_approx_bound_error" begin
+
+    Tobs = 8
+    @test abs(squares_cdf(Tobs, 100) - (squares_cdf(Tobs, 50) ^ 2 - squares_cdf(Tobs, 100) * RunStatistics.Delta(Tobs, 100, 100))) <= 1e-3
+end
