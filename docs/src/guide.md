@@ -66,7 +66,6 @@ To obtain the exact p-value given the value of ``T_{obs}`` for ``N \lesssim 100`
 julia> squares_pvalue(T_obs, N)
 ```
 or
-<!-- the p value is defined as 1 - cdf. I don't know how you define the cdf in your code but it should follow that convention! -->
 ```Julia
 julia> squares_cdf(T_obs, N)
 ```
@@ -177,8 +176,6 @@ p = 1 - F(T_{obs} | nN)
 ```
 
 ``\Delta(T_{obs})`` is a correction term (see equation (13) in [^2]) whose computation involves a 1D numerical integration. This is performed with the `quadgk()` function from the [`QuadGK.jl`](https://juliapackages.com/p/quadgk) package.
-
-
 ### Accuracy
 ---
 
