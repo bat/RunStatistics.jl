@@ -32,8 +32,6 @@ Depth = 3
 
 When using `RunStatistics.jl` for research, teaching or similar, please cite the original authors' work:
 
-<!-- TODO Update second reference to journal instead of ArXiv -->
-
 ```
 @article{beaujean2011test,
   title={A test statistic for weighted runs},
@@ -46,13 +44,18 @@ When using `RunStatistics.jl` for research, teaching or similar, please cite the
   publisher={Elsevier}
 }
 
-@article{Beaujean:2017eyq,
-  author         = "Beaujean, Frederik and Caldwell, Allen and Reimann, Olaf",
-  title          = "{Is the bump significant? An axion-search example}",
-  year           = "2017",
-  eprint         = "1710.06642",
-  archivePrefix  = "arXiv",
-  primaryClass   = "hep-ex",
-  SLACcitation   = "%%CITATION = ARXIV:1710.06642;%%"
+@article{Beaujean2018,
+  author={Beaujean, Frederik and Caldwell, Allen and Reimann, Olaf},
+  title={Is the bump significant? An axion-search example},
+  journal={The European Physical Journal C},
+  year={2018},
+  month={Sep},
+  day={28},
+  volume={78},
+  number={9},
+  pages={793},
+  issn={1434-6052},
+  doi={10.1140/epjc/s10052-018-6217-y},
+  url={https://doi.org/10.1140/epjc/s10052-018-6217-y}
 }
 ```
